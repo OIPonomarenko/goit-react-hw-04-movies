@@ -1,0 +1,21 @@
+.description {
+  list-style: none;
+}
+
+.info {
+  margin: 0;
+  padding: 0;
+  width: 800px;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+span {
+  width: 150px;
+  margin-right: 20px;
+
+  color: rgba(0, 0, 0, 0.4);
+}

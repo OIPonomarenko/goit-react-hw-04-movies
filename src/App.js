@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router";
 
 import HomePage from "./views/HomePage/HomePage";
 import MoviesPage from "./views/MoviesPage/MoviesPage";
+import MovieDetailsPage from "./views/MovieDetailsPage/MovieDetailsPage";
 import NotFound from "./views/NotFound/NotFound";
 
 function App() {
@@ -15,8 +16,12 @@ function App() {
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route path="/movies">
+        <Route exact path="/movies">
           <MoviesPage />
+        </Route>
+
+        <Route path="/movies/:movieId">
+          <MovieDetailsPage />
         </Route>
         <Route>
           <NotFound />

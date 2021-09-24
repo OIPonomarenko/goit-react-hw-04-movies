@@ -1,3 +1,5 @@
+import defaultImage from "../../images/nothing.jpg";
+
 export default function NotFound() {
-  return <p>Page not found</p>;
+  return <img src={defaultImage} alt="Page not found" />;
 }
