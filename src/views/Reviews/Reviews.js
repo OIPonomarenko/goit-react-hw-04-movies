@@ -1,5 +1,31 @@
 import s from "./Reviews.module.css";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import shortid from "shortid";
+import ApiReviews from "../../Api/ApiReviews";
+import ReviewsDescr from "../../components/ReviewsDescr/ReviewsDescr";
 
 export default function Reviews() {
-  return <p>Reviews content</p>;
+  const [reviews, setReview] = useState([]);
+  const { movieId } = useParams();
+
+  useEffect(() => {
+    ApiReviews(movieId).then((res) => {
+      console.log(res);
+      setReview(res.data.results);
+    });
+  }, []);
+
+  return (
+    <ul className={s.list}>
+      {reviews &&
+        reviews.map((review) => {
+          return (
+            <li className={s.movieItem} key={shortid.generate()}>
+              <ReviewsDescr props={review} />
+            </li>
+          );
+        })}
+    </ul>
+  );
 }
