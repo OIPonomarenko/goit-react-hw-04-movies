@@ -11,7 +11,6 @@ export default function HomePage() {
 
   useEffect(() => {
     Api().then((res) => {
-      console.log(res.data.results);
       prevMovies.current = res.data.results;
 
       movies.length === 0

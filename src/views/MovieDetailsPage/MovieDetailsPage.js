@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+//=== base
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Switch, Route, useParams } from "react-router";
 
+//=== static components
 import ApiByID from "../../Api/ApiByID";
 import Description from "../../components/Description/Description";
-import Reviews from "../Reviews/Reviews";
-import Cast from "../Cast/Cast";
 
+//=== styles and utils
 import defaultImg from "../../images/nothing.jpg";
 import s from "./MovieDetailsPage.module.css";
+
+//=== dinamic component
+const Reviews = lazy(() => import("../Reviews/Reviews"));
+const Cast = lazy(() => import("../Cast/Cast"));
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -27,7 +32,7 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <article className={s.article}>
+      <article className={`${s.article} ${s.container}`}>
         <img
           className={s.image}
           src={
@@ -42,25 +47,29 @@ export default function MovieDetailsPage() {
       </article>
 
       <section className={s.section}>
-        <h3 className={s.title}>Additional information</h3>
-        <ul className={s.list}>
-          <li className={s.item}>
-            <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-          </li>
-          <li className={s.item}>
-            <Link to={`/movies/${movieId}/reviews`}> Rewiews</Link>
-          </li>
-        </ul>
+        <div className={s.container}>
+          <h3 className={s.title}>Additional information</h3>
+          <ul className={s.list}>
+            <li className={s.item}>
+              <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+            </li>
+            <li className={s.item}>
+              <Link to={`/movies/${movieId}/reviews`}> Rewiews</Link>
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <Switch>
-        <Route path="/movies/:movieId/reviews">
-          <Reviews />
-        </Route>
-        <Route path="/movies/:movieId/cast">
-          <Cast />
-        </Route>
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route path="/movies/:movieId/reviews">
+            <Reviews />
+          </Route>
+          <Route path="/movies/:movieId/cast">
+            <Cast />
+          </Route>
+        </Switch>
+      </Suspense>
     </>
   );
 }
