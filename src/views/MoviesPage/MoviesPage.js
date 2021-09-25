@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import shortid from "shortid";
 import ApiByName from "../../Api/ApiByName";
 import s from "./MoviePage.module.css";
@@ -10,6 +10,8 @@ import defaultImg from "../../images/nothing.jpg";
 export default function MoviesPage() {
   const [movieSearch, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
+  const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     setMovies([]);
@@ -22,6 +24,11 @@ export default function MoviesPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setMovies([]);
+
+    history.push({
+      ...location,
+      search: `query=${movieSearch}`,
+    });
 
     ApiByName(movieSearch).then((res) => {
       console.log(res.data.results);
