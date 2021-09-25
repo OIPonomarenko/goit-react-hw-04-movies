@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import s from "./Description.module.css";
 
 export default function Description({ props }) {
@@ -32,3 +33,11 @@ export default function Description({ props }) {
     </ul>
   );
 }
+
+Description.propTypes = {
+  tagline: PropTypes.string,
+  release_date: PropTypes.string,
+  budget: PropTypes.number,
+  vote_average: PropTypes.number,
+  overview: PropTypes.string,
+};

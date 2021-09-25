@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import s from "./CastDescription.module.css";
 
 export default function CastDescription({ props }) {
@@ -20,3 +21,9 @@ export default function CastDescription({ props }) {
     </ul>
   );
 }
+
+CastDescription.propTypes = {
+  name: PropTypes.string,
+  popularity: PropTypes.number,
+  known_for_department: PropTypes.string,
+};

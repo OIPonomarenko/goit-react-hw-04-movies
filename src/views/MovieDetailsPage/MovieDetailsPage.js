@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Switch, Route, useParams } from "react-router";
-//import shortid from "shortid";
+
 import ApiByID from "../../Api/ApiByID";
 import Description from "../../components/Description/Description";
 import Reviews from "../Reviews/Reviews";
 import Cast from "../Cast/Cast";
+
 import defaultImg from "../../images/nothing.jpg";
 import s from "./MovieDetailsPage.module.css";
 

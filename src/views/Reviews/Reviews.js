@@ -1,9 +1,9 @@
-import s from "./Reviews.module.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import shortid from "shortid";
 import ApiReviews from "../../Api/ApiReviews";
 import ReviewsDescr from "../../components/ReviewsDescr/ReviewsDescr";
+import s from "./Reviews.module.css";
 
 export default function Reviews() {
   const [reviews, setReview] = useState([]);

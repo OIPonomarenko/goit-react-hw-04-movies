@@ -1,5 +1,5 @@
 import normalizeData from "../../utils/normalizeData";
-
+import PropTypes from "prop-types";
 import s from "./ReviewsDescription.module.css";
 
 export default function ReviewsDescr({ props }) {
@@ -21,3 +21,10 @@ export default function ReviewsDescr({ props }) {
     </>
   );
 }
+
+ReviewsDescr.propTypes = {
+  author: PropTypes.string,
+  author_details: PropTypes.shape({}),
+  content: PropTypes.string,
+  created_at: PropTypes.string,
+};
