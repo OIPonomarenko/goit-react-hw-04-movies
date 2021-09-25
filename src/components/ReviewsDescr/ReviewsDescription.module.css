@@ -3,21 +3,17 @@
 }
 
 .info {
-  margin: 0;
-  padding: 0;
-  width: 800px;
-
   white-space: pre-wrap;
+  width: 90%;
 }
 
 .item {
-  display: flex;
+  width: 240px;
   margin-bottom: 10px;
 }
 
 span {
   width: 300px;
-
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -28,4 +24,23 @@ span {
 
 .date {
   text-align: right;
+}
+
+@media screen and (min-width: 420px) {
+  .item {
+    display: flex;
+    width: 360px;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .item {
+    width: 480px;
+  }
+}
+
+@media screen and (min-width: 865px) {
+  .item {
+    width: 640px;
+  }
 }

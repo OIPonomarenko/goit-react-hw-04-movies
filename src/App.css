@@ -3,9 +3,14 @@ body {
 }
 
 #root {
-  margin: 0px 120px;
   padding-bottom: 60px;
   background-color: #fff;
+}
+
+@media screen and (min-width: 977px) {
+  #root {
+    margin: 0px 120px;
+  }
 }
 
 h1,

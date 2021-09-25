@@ -4,9 +4,8 @@
 }
 
 .info {
-  margin: 0;
-  padding: 0;
-  width: 800px;
+  width: 200px;
+  max-width: 800px;
 }
 
 .item {
@@ -14,8 +13,22 @@
   margin-bottom: 20px;
 }
 
-span {
-  width: 150px;
-
+.tag {
   color: rgba(0, 0, 0, 0.4);
+  width: 80px;
+}
+
+@media screen and (min-width: 741px) {
+  .info {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 977px) {
+  .tag {
+    width: 150px;
+  }
+  .info {
+    width: 500px;
+  }
 }
