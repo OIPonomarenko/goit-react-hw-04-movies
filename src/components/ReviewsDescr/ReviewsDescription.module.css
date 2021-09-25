@@ -6,6 +6,8 @@
   margin: 0;
   padding: 0;
   width: 800px;
+
+  white-space: pre-wrap;
 }
 
 .item {
@@ -15,7 +17,15 @@
 
 span {
   width: 300px;
-  margin-right: 20px;
 
   color: rgba(0, 0, 0, 0.4);
+}
+
+.author {
+  margin-left: 16px;
+  margin-right: auto;
+}
+
+.date {
+  text-align: right;
 }

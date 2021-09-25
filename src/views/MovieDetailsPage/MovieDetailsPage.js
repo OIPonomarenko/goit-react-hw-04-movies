@@ -20,31 +20,38 @@ export default function MovieDetailsPage() {
   }, []);
 
   const { poster_path, backdrop_path, title, ...others } = movies;
-  const defaultImage =
-    `https://image.tmdb.org/t/p/w500/${poster_path || backdrop_path}` ||
-    defaultImg;
+  const defaultImage = `https://image.tmdb.org/t/p/w500/${
+    poster_path || backdrop_path
+  }`;
 
   return (
     <>
       <article className={s.article}>
-        <img className={s.image} src={defaultImage} alt={title} />
-        <h3>{title}</h3>
+        <img
+          className={s.image}
+          src={
+            defaultImage === "https://image.tmdb.org/t/p/w500/null"
+              ? defaultImg
+              : defaultImage
+          }
+          alt={title}
+        />
+        <h3 className={s.title}>{title}</h3>
         <Description props={others} />
       </article>
 
-      <section>
-        {" "}
-        Additional information
-        <ul>
-          <li>
+      <section className={s.section}>
+        <h3 className={s.title}>Additional information</h3>
+        <ul className={s.list}>
+          <li className={s.item}>
             <Link to={`/movies/${movieId}/cast`}>Cast</Link>
           </li>
-          <li>
+          <li className={s.item}>
             <Link to={`/movies/${movieId}/reviews`}> Rewiews</Link>
           </li>
         </ul>
       </section>
-      <hr />
+
       <Switch>
         <Route path="/movies/:movieId/reviews">
           <Reviews />

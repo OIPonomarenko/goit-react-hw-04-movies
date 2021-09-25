@@ -65,7 +65,7 @@ export default function MoviesPage() {
                   }
                   alt={movie.title}
                 />
-                <p>{movie.title}</p>
+                <p className={s.title}>{movie.title}</p>
               </Link>
             </li>
           );

@@ -10,7 +10,9 @@ export default function ReviewsDescr({ props }) {
       <img src={author_details.avatar_path} alt="" />
       <ul className={s.description}>
         <li className={s.item}>
-          Написано {author} {normalizeData(created_at)}
+          Написано
+          <p className={s.author}>{author} </p>
+          <span className={s.date}>{normalizeData(created_at)}</span>
         </li>
         <li className={s.item}>
           <p className={s.info}> {content} </p>

@@ -5,18 +5,22 @@ export default function Description({ props }) {
 
   return (
     <ul className={s.description}>
-      <li className={s.item}>
-        <span>Tagline:</span>
-        <p className={s.info}> {tagline} </p>
-      </li>
+      {tagline && (
+        <li className={s.item}>
+          <span>Tagline:</span>
+          <p className={s.info}> {tagline} </p>
+        </li>
+      )}
       <li className={s.item}>
         <span>Release date:</span>
         <p className={s.info}> {release_date} </p>
       </li>
-      <li className={s.item}>
-        <span>Budget:</span>
-        <p className={s.info}> {budget} </p>
-      </li>
+      {budget !== 0 && (
+        <li className={s.item}>
+          <span>Budget:</span>
+          <p className={s.info}> {budget} </p>
+        </li>
+      )}
       <li className={s.item}>
         <span>Vote Average:</span>
         <p className={s.info}>{vote_average} </p>

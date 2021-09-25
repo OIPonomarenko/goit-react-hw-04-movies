@@ -11,21 +11,23 @@ export default function Reviews() {
 
   useEffect(() => {
     ApiReviews(movieId).then((res) => {
-      console.log(res);
       setReview(res.data.results);
     });
   }, []);
 
   return (
     <ul className={s.list}>
-      {reviews &&
+      {reviews.length !== 0 ? (
         reviews.map((review) => {
           return (
-            <li className={s.movieItem} key={shortid.generate()}>
+            <li className={s.item} key={shortid.generate()}>
               <ReviewsDescr props={review} />
             </li>
           );
-        })}
+        })
+      ) : (
+        <p>Reviews not found</p>
+      )}
     </ul>
   );
 }

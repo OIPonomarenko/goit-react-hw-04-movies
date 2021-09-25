@@ -2,4 +2,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-top: 32px;
+}
+
+.title {
+  margin-top: 16px;
+
+  font-weight: 500;
+  color: #2a363b;
+}
+
+.section {
+  margin-top: 32px;
+  padding-left: 64px;
+  padding-bottom: 32px;
+
+  border-bottom: 1px solid #eee3e3;
+  border-top: 1px solid #eee3e3;
+}
+
+.list {
+  margin-top: 16px;
+}
+
+.item > a {
+  letter-spacing: 0.02em;
+  color: #212121;
+  text-decoration: none;
+}
+
+.item > a:visited {
+  text-decoration: none;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 16px;
 }

@@ -42,7 +42,7 @@ export default function HomePage() {
                     }
                     alt={movie.title}
                   />
-                  <p>{movie.title}</p>
+                  <p className={s.title}>{movie.title}</p>
                 </Link>
               </li>
             );
