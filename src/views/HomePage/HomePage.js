@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import shortid from "shortid";
-import Api from "../../Api/Api";
+import { ApiMain } from "../../Api/Api";
 import s from "./HomePage.module.css";
 import defaultImg from "../../images/nothing.jpg";
 
@@ -10,7 +10,7 @@ export default function HomePage() {
   const prevMovies = useRef();
 
   useEffect(() => {
-    Api().then((res) => {
+    ApiMain().then((res) => {
       prevMovies.current = res.data.results;
 
       movies.length === 0

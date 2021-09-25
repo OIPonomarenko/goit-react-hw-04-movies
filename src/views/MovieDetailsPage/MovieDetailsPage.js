@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Switch, Route, useParams } from "react-router";
 
 //=== static components
-import ApiByID from "../../Api/ApiByID";
+import { ApiByID } from "../../Api/Api";
 import Description from "../../components/Description/Description";
 
 //=== styles and utils

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import shortid from "shortid";
-import ApiReviews from "../../Api/ApiReviews";
+import { ApiReviews } from "../../Api/Api";
 import ReviewsDescr from "../../components/ReviewsDescr/ReviewsDescr";
 import s from "./Reviews.module.css";
 

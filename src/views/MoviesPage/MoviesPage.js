@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import shortid from "shortid";
-import ApiByName from "../../Api/ApiByName";
+import { ApiByName } from "../../Api/Api";
 import s from "./MoviePage.module.css";
 import defaultImg from "../../images/nothing.jpg";
 

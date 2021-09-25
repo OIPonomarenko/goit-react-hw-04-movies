@@ -5,7 +5,7 @@ import shortid from "shortid";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-import ApiCast from "../../Api/ApiCast";
+import { ApiCast } from "../../Api/Api";
 import CastDescription from "../../components/CastDescription/CastDescription";
 
 export default function Cast() {
