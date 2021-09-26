@@ -4,10 +4,15 @@
   padding: 20px;
 
   font-weight: 500;
+  font-size: 20px;
   color: #2a363b;
 }
 
 .activeLink {
   composes: link;
   color: #9d2658;
+}
+
+.container {
+  margin-left: 44px;
 }

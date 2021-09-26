@@ -38,22 +38,24 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <button type="button" onClick={onGoBack}>
-        Go back
-      </button>
-      <article className={`${s.article} ${s.container}`}>
-        <img
-          className={s.image}
-          src={
-            defaultImage === "https://image.tmdb.org/t/p/w500/null"
-              ? defaultImg
-              : defaultImage
-          }
-          alt={title}
-        />
-        <h3 className={s.title}>{title}</h3>
-        <Description props={others} />
-      </article>
+      <section className={s.section}>
+        <button className={s.button} type="button" onClick={onGoBack}>
+          Go back
+        </button>
+        <article className={`${s.article} ${s.container}`}>
+          <img
+            className={s.image}
+            src={
+              defaultImage === "https://image.tmdb.org/t/p/w500/null"
+                ? defaultImg
+                : defaultImage
+            }
+            alt={title}
+          />
+          <h3 className={s.title}>{title}</h3>
+          <Description props={others} />
+        </article>
+      </section>
 
       <section className={s.section}>
         <div className={s.container}>
