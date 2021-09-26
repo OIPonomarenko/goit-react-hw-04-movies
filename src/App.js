@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect } from "react-router";
 
 import Navigation from "./components/Navigation/Navigation";
 import "./App.css";
@@ -10,7 +10,6 @@ const MoviesPage = lazy(() => import("./views/MoviesPage/MoviesPage"));
 const MovieDetailsPage = lazy(() =>
   import("./views/MovieDetailsPage/MovieDetailsPage")
 );
-const NotFound = lazy(() => import("./views/NotFound/NotFound"));
 
 function App() {
   return (
@@ -29,9 +28,7 @@ function App() {
           <Route path="/movies/:movieId">
             <MovieDetailsPage />
           </Route>
-          <Route>
-            <NotFound />
-          </Route>
+          <Redirect to="/" />
         </Switch>
       </Suspense>
     </>
