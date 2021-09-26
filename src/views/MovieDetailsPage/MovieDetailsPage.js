@@ -1,6 +1,6 @@
 //=== base
 import { useEffect, useState, lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { Switch, Route, useParams } from "react-router";
 
 //=== static components
@@ -16,6 +16,8 @@ const Reviews = lazy(() => import("../Reviews/Reviews"));
 const Cast = lazy(() => import("../Cast/Cast"));
 
 export default function MovieDetailsPage() {
+  const history = useHistory();
+  const location = useLocation();
   const { movieId } = useParams();
   const [movies, setMovies] = useState([]);
 
@@ -25,6 +27,10 @@ export default function MovieDetailsPage() {
     });
   }, []);
 
+  const onGoBack = () => {
+    history.push(location?.state?.from ?? "/");
+  };
+
   const { poster_path, backdrop_path, title, ...others } = movies;
   const defaultImage = `https://image.tmdb.org/t/p/w500/${
     poster_path || backdrop_path
@@ -32,6 +38,9 @@ export default function MovieDetailsPage() {
 
   return (
     <>
+      <button type="button" onClick={onGoBack}>
+        Go back
+      </button>
       <article className={`${s.article} ${s.container}`}>
         <img
           className={s.image}

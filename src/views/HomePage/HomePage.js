@@ -1,11 +1,17 @@
+//=== base
 import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import shortid from "shortid";
+
+//=== static components
 import { ApiMain } from "../../Api/Api";
+
+//=== styles and utils
 import s from "./HomePage.module.css";
 import defaultImg from "../../images/nothing.jpg";
 
 export default function HomePage() {
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
   const prevMovies = useRef();
 
@@ -31,7 +37,12 @@ export default function HomePage() {
 
             return (
               <li className={s.movieItem} key={shortid.generate()}>
-                <Link to={`/movies/${movie.id}`}>
+                <Link
+                  to={{
+                    pathname: `/movies/${movie.id}`,
+                    state: { from: location },
+                  }}
+                >
                   <img
                     className={s.movieImg}
                     src={

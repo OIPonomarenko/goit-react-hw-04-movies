@@ -31,7 +31,6 @@ export default function MoviesPage() {
     });
 
     ApiByName(movieSearch).then((res) => {
-      console.log(res.data.results);
       setMovies(res.data.results);
     });
   };
