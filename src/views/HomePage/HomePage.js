@@ -1,6 +1,6 @@
 //=== base
 import { useEffect, useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import shortid from "shortid";
 
 //=== static components
@@ -8,7 +8,7 @@ import { ApiMain } from "../../Api/Api";
 
 //=== styles and utils
 import s from "./HomePage.module.css";
-import defaultImg from "../../images/nothing.jpg";
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 export default function HomePage() {
   const location = useLocation();
@@ -31,29 +31,15 @@ export default function HomePage() {
       <ul className={s.movieList}>
         {movies &&
           movies.map((movie) => {
-            const defaultImage = `https://image.tmdb.org/t/p/w500/${
-              movie.poster_path || movie.backdrop_path
-            }`;
+            const { id, title, poster_path, backdrop_path } = movie;
 
             return (
               <li className={s.movieItem} key={shortid.generate()}>
-                <Link
-                  to={{
-                    pathname: `/movies/${movie.id}`,
-                    state: { from: location },
-                  }}
-                >
-                  <img
-                    className={s.movieImg}
-                    src={
-                      defaultImage === "https://image.tmdb.org/t/p/w500/null"
-                        ? defaultImg
-                        : defaultImage
-                    }
-                    alt={movie.title}
-                  />
-                  <p className={s.title}>{movie.title}</p>
-                </Link>
+                <MovieCard
+                  movieId={id}
+                  propImage={poster_path || backdrop_path}
+                  title={title}
+                />
               </li>
             );
           })}

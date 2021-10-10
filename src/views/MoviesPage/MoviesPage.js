@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import shortid from "shortid";
 import { ApiByName } from "../../Api/Api";
 import s from "./MoviePage.module.css";
-import defaultImg from "../../images/nothing.jpg";
+
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 // if I have a time add pagination
 
@@ -55,24 +56,15 @@ export default function MoviesPage() {
 
       <ul className={s.movieList}>
         {movies.map((movie) => {
-          const defaultImage = `https://image.tmdb.org/t/p/w500/${
-            movie.poster_path || movie.backdrop_path
-          }`;
+          const { id, title, poster_path, backdrop_path } = movie;
 
           return (
             <li className={s.movieItem} key={shortid.generate()}>
-              <Link to={`/movies/${movie.id}`}>
-                <img
-                  className={s.movieImg}
-                  src={
-                    defaultImage === "https://image.tmdb.org/t/p/w500/null"
-                      ? defaultImg
-                      : defaultImage
-                  }
-                  alt={movie.title}
-                />
-                <p className={s.title}>{movie.title}</p>
-              </Link>
+              <MovieCard
+                movieId={id}
+                propImage={poster_path || backdrop_path}
+                title={title}
+              />
             </li>
           );
         })}

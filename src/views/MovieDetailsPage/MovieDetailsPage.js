@@ -1,7 +1,7 @@
 //=== base
 import { useEffect, useState, lazy, Suspense } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import { Switch, Route, useParams } from "react-router";
+import { Link, useHistory, useLocation, NavLink } from "react-router-dom";
+import { Switch, Route, useParams, useRouteMatch } from "react-router";
 
 //=== static components
 import { ApiByID } from "../../Api/Api";
@@ -16,16 +16,20 @@ const Reviews = lazy(() => import("../Reviews/Reviews"));
 const Cast = lazy(() => import("../Cast/Cast"));
 
 export default function MovieDetailsPage() {
+  const [query, setQuery] = useState([]);
+  const [movies, setMovies] = useState([]);
+
   const history = useHistory();
   const location = useLocation();
+  const { url, path } = useRouteMatch();
   const { movieId } = useParams();
-  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     ApiByID(movieId).then((res) => {
       setMovies(res.data);
+      setQuery(location.state.from.search);
     });
-  }, []);
+  }, [location.state.from.search, movieId]);
 
   const onGoBack = () => {
     history.push(location?.state?.from ?? "/");
@@ -62,7 +66,22 @@ export default function MovieDetailsPage() {
           <h3 className={s.title}>Additional information</h3>
           <ul className={s.list}>
             <li className={s.item}>
-              <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+              <NavLink
+                to={{
+                  pathname: `${url}/cast`,
+                  state: {
+                    from: {
+                      ...location,
+                      pathname: location.state.from.pathname,
+                      search: query,
+                    },
+                  },
+                }}
+              >
+                {" "}
+                Cast{" "}
+              </NavLink>
+              {/* <Link to={`/movies/${movieId}/cast`}></Link> */}
             </li>
             <li className={s.item}>
               <Link to={`/movies/${movieId}/reviews`}> Rewiews</Link>
@@ -76,7 +95,7 @@ export default function MovieDetailsPage() {
           <Route path="/movies/:movieId/reviews">
             <Reviews />
           </Route>
-          <Route path="/movies/:movieId/cast">
+          <Route path={`${path}/cast`}>
             <Cast />
           </Route>
         </Switch>
