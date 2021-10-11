@@ -1,7 +1,9 @@
 import { lazy, Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 import { Switch, Route, Redirect } from "react-router";
 
 import Navigation from "./components/Navigation/Navigation";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 //=== components
@@ -31,6 +33,18 @@ function App() {
           <Redirect to="/" />
         </Switch>
       </Suspense>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }

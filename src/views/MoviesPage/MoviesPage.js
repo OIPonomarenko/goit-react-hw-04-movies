@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { useHistory, useLocation } from "react-router-dom";
 import shortid from "shortid";
 import { ApiByName } from "../../Api/Api";
+
 import s from "./MoviePage.module.css";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
@@ -14,8 +16,21 @@ export default function MoviesPage() {
   const history = useHistory();
   const location = useLocation();
 
+  const urlQuery = new URLSearchParams(location.search).get("query") || null;
+
   useEffect(() => {
-    setMovies([]);
+    if (!urlQuery) {
+      return;
+    }
+
+    ApiByName(urlQuery)
+      .then((response) => {
+        if (response.total_results === 0) {
+          return toast.error(`No result for "${urlQuery}". Try another movie`);
+        }
+        setMovies([...response.data.results]);
+      })
+      .catch(({ message }) => toast.error(message));
   }, []);
 
   const handleNameChange = (e) => {

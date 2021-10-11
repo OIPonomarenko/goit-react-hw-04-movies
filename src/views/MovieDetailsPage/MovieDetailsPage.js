@@ -1,6 +1,6 @@
 //=== base
 import { useEffect, useState, lazy, Suspense } from "react";
-import { Link, useHistory, useLocation, NavLink } from "react-router-dom";
+import { useHistory, useLocation, NavLink } from "react-router-dom";
 import { Switch, Route, useParams, useRouteMatch } from "react-router";
 
 //=== static components
@@ -29,7 +29,7 @@ export default function MovieDetailsPage() {
       setMovies(res.data);
       setQuery(location.state.from.search);
     });
-  }, [location.state.from.search, movieId]);
+  }, []);
 
   const onGoBack = () => {
     history.push(location?.state?.from ?? "/");
@@ -81,10 +81,23 @@ export default function MovieDetailsPage() {
                 {" "}
                 Cast{" "}
               </NavLink>
-              {/* <Link to={`/movies/${movieId}/cast`}></Link> */}
             </li>
             <li className={s.item}>
-              <Link to={`/movies/${movieId}/reviews`}> Rewiews</Link>
+              <NavLink
+                to={{
+                  pathname: `${url}/reviews`,
+                  state: {
+                    from: {
+                      ...location,
+                      pathname: location.state.from.pathname,
+                      search: query,
+                    },
+                  },
+                }}
+              >
+                {" "}
+                Rewiews{" "}
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -92,7 +105,7 @@ export default function MovieDetailsPage() {
 
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route path="/movies/:movieId/reviews">
+          <Route path={`${path}/reviews`}>
             <Reviews />
           </Route>
           <Route path={`${path}/cast`}>
