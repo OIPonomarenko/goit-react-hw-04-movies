@@ -1,11 +1,13 @@
 .description {
-  margin-top: 16px;
+  margin-top: 32px;
   list-style: none;
 }
 
 .info {
   width: 200px;
   max-width: 800px;
+  color: #9ca4ad;
+  opacity: 0.6;
 }
 
 .item {
@@ -14,7 +16,10 @@
 }
 
 .tag {
-  color: rgba(0, 0, 0, 0.4);
+  color: #9d2658;
+
+  font-weight: 400;
+  font-size: 18px;
   width: 80px;
 }
 

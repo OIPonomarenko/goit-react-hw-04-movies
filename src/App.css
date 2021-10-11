@@ -1,17 +1,19 @@
-body {
-  background-color: #f4f4f4;
-}
-
 #root {
   padding-bottom: 60px;
-  background-color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(9, 10, 14, 1) 0%,
+    rgba(62, 62, 64, 1) 35%,
+    rgba(19, 45, 78, 1) 100%
+  );
+  min-height: 100vh;
 }
 
-@media screen and (min-width: 977px) {
+/* @media screen and (min-width: 977px) {
   #root {
     margin: 0px 120px;
   }
-}
+} */
 
 h1,
 h2,

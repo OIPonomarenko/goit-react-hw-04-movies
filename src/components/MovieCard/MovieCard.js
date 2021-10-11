@@ -13,6 +13,7 @@ export default function MovieCard({ movieId, propImage, title }) {
         pathname: `/movies/${movieId}`,
         state: { from: location },
       }}
+      className={s.link}
     >
       <img
         className={s.movieImg}

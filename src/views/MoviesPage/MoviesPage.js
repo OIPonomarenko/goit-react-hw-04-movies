@@ -52,7 +52,7 @@ export default function MoviesPage() {
   };
 
   return (
-    <>
+    <section className={s.container}>
       <header className={s.Searchbar}>
         <form className={s.SearchForm} onSubmit={handleSubmit}>
           <input
@@ -84,6 +84,6 @@ export default function MoviesPage() {
           );
         })}
       </ul>
-    </>
+    </section>
   );
 }

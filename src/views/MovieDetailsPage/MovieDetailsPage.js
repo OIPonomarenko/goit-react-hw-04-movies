@@ -61,7 +61,7 @@ export default function MovieDetailsPage() {
         </article>
       </section>
 
-      <section className={s.section}>
+      <section className={s.addInfo}>
         <div className={s.container}>
           <h3 className={s.title}>Additional information</h3>
           <ul className={s.list}>

@@ -14,8 +14,17 @@
 .Heading {
   text-align: center;
   margin-bottom: 32px;
+  color: #9ca4ad;
 }
 
 .title:visited {
   text-decoration: none;
+}
+
+.movieItem {
+  position: relative;
+}
+
+.container {
+  padding-top: 100px;
 }

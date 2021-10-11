@@ -5,7 +5,7 @@
 
   font-weight: 500;
   font-size: 20px;
-  color: #2a363b;
+  color: #9ca4ad;
 }
 
 .activeLink {
@@ -17,4 +17,14 @@
   .container {
     margin-left: 44px;
   }
+}
+
+nav {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+
+  background-color: #3e3e40;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }

@@ -26,8 +26,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
-      <h3 className={s.Heading}> Trending today </h3>
+    <section className={s.container}>
+      <h3 className={s.Heading}> Popular movies </h3>
       <ul className={s.movieList}>
         {movies &&
           movies.map((movie) => {
@@ -44,6 +44,6 @@ export default function HomePage() {
             );
           })}
       </ul>
-    </>
+    </section>
   );
 }

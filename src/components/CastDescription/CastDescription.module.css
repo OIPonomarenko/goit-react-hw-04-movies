@@ -7,6 +7,9 @@
   margin: 0;
   padding: 0;
   width: 800px;
+
+  color: #9ca4ad;
+  opacity: 0.6;
 }
 
 .item {
@@ -17,5 +20,5 @@
 span {
   width: 300px;
 
-  color: rgba(0, 0, 0, 0.4);
+  color: #9d2658;
 }
