@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import defaultImg from "../../images/nothing.jpg";
 import s from "./MovieCard.module.css";
+import { StyledTitle } from "./StyledTitle";
 
 export default function MovieCard({ movieId, propImage, title }) {
   const location = useLocation();
@@ -13,14 +14,14 @@ export default function MovieCard({ movieId, propImage, title }) {
         pathname: `/movies/${movieId}`,
         state: { from: location },
       }}
-      className={s.link}
+      className="shadowLink"
     >
       <img
         className={s.movieImg}
         src={propImage === null ? defaultImg : defaultImage}
         alt={title}
       />
-      <p className={s.title}>{title}</p>
+      <StyledTitle>{title}</StyledTitle>
     </Link>
   );
 }
