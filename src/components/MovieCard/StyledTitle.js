@@ -28,13 +28,3 @@ export const StyledTitle = styled.p.attrs((/* props */) => ({ tabIndex: 0 }))`
 
   }
 `;
-
-//     &: hover + &,
-//    &:focus + & {
-//        display: block;
-//     transform: translateY(0);
-// text-decoration: none;
-
-/* .title:visited {
-  text-decoration: none;
-} */
