@@ -26,7 +26,6 @@ export default function Cast() {
     <Carousel
       responsive={responsive}
       className={s.list}
-      arrows={false}
       swipeable={true}
       autoPlay={true}
       autoPlaySpeed={2000}
