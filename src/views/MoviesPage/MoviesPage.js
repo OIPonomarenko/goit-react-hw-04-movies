@@ -5,7 +5,8 @@ import shortid from "shortid";
 import { ApiByName } from "../../Api/Api";
 
 import s from "./MoviePage.module.css";
-
+import {Button, Container} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 // if I have a time add pagination
@@ -13,6 +14,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 export default function MoviesPage() {
   const [movieSearch, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
   const history = useHistory();
   const location = useLocation();
 
@@ -51,8 +53,17 @@ export default function MoviesPage() {
     });
   };
 
+  const clickOnLoad = () => {
+    setPage((page) => page + 1);
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className={s.container}>
+      <Container className={s.movieListContainer} >
       <header className={s.Searchbar}>
         <form className={s.SearchForm} onSubmit={handleSubmit}>
           <input
@@ -84,6 +95,9 @@ export default function MoviesPage() {
           );
         })}
       </ul>
+      <Button type="button" variant="outline-secondary" className='mr-2 ' onClick={clickOnLoad}>Load More
+      </Button>
+      </Container>
     </section>
   );
 }

@@ -3,9 +3,9 @@ import axios from "axios";
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "6c880398193815cb8a0c25fae5a3fbe7";
 
-const ApiMain = () => {
+const ApiMain = (page) => {
   return axios
-    .get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`)
+    .get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`)
     .then((response) => {
       return response;
     })
