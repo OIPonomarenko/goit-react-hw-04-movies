@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import { useHistory, useLocation } from "react-router-dom";
 import shortid from "shortid";
@@ -17,23 +17,34 @@ export default function MoviesPage() {
   const [page, setPage] = useState(1);
   const history = useHistory();
   const location = useLocation();
+  const prevMovies = useRef();
 
   const urlQuery = new URLSearchParams(location.search).get("query") || null;
 
   useEffect(() => {
     if (!urlQuery) {
       return;
-    }
-
-    ApiByName(urlQuery)
-      .then((response) => {
-        if (response.total_results === 0) {
+    };
+    
+      ApiByName(urlQuery, page)
+      .then((res) => {
+        if (res.total_results === 0) {
           return toast.error(`No result for "${urlQuery}". Try another movie`);
         }
-        setMovies([...response.data.results]);
+        else {
+          prevMovies.current = res.data.results;
+          movies.length === 0
+        ? setMovies(prevMovies.current)
+        : setMovies((movies) => [...movies, ...prevMovies.current]);       
+        }
+
       })
-      .catch(({ message }) => toast.error(message));
-  }, []);
+      .catch(({ message }) => toast.error(message))
+  }, [page]);
+
+  useEffect(()=> {
+    setPage(1)
+  }, [urlQuery])
 
   const handleNameChange = (e) => {
     setSearch(e.currentTarget.value.toLowerCase());

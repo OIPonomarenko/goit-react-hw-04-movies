@@ -25,10 +25,10 @@ const ApiByID = (movie_id) => {
     });
 };
 
-const ApiByName = (keyWord) => {
+const ApiByName = (keyWord, page) => {
   return axios
     .get(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${keyWord}&language=en-US`
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${keyWord}&language=en-US&page=${page}`
     )
     .then((response) => {
       return response;
