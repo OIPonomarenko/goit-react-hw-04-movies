@@ -13,6 +13,10 @@
   color: #9d2658;
 }
 
+.link:hover {
+  color: #9d2658;
+}
+
 @media screen and (min-width: 740px) {
   .container {
     margin-left: 44px;
