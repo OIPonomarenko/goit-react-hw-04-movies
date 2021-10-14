@@ -1,3 +1,5 @@
+import {Button} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import s from "./SearchBar.module.css";
 
 export default function SearchBar ({query, onSubmit, onChange}) {
@@ -11,9 +13,10 @@ export default function SearchBar ({query, onSubmit, onChange}) {
             onChange={onChange}
             placeholder="Search movie"
           />
-          <button type="submit" className={s.SearchFormButton}>
-            Search
-          </button>
+          <Button   type="submit" 
+                    variant="outline-secondary" 
+                    className='mr-2 '>Search
+          </Button>
         </form>
     )
 }

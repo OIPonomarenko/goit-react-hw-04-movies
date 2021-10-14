@@ -41,7 +41,10 @@ export default function HomePage() {
       <Container className={s.movieListContainer} >
       <h3 className={s.Heading}> Popular movies </h3>
       <MovieList movies={movies}/>
-       <Button type="button" variant="outline-secondary" className='mr-2 ' onClick={clickOnLoad}>Load More
+       <Button  type="button" 
+                variant="outline-secondary" 
+                className='mr-2 ' 
+                onClick={clickOnLoad}>Load More
       </Button>
     </Container>
     </section>
