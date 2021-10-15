@@ -14,3 +14,35 @@ export let theme = createTheme({
   },
 });
 
+export const customTheme = createTheme({
+  components: {
+    // Name of the component
+    MuiInput: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          borderBottom: '1px solid #9ca4ad',
+          outline:'none',
+          color:'#9ca4ad'
+                   
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          color: '#9ca4ad',
+
+          '& label:focused ': {
+            color: '#9ca4ad'
+          },
+        },
+      },
+    },
+
+  
+  },
+});

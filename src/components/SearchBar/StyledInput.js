@@ -2,16 +2,16 @@ import { makeStyles } from '@mui/material';
 
 
 
-export const useStyles = makeStyles(theme => ({
-    root: {
+export const useStyles = makeStyles({
+  
       
-      backgroundColor: "orange",
+      
       
       "& input::placeholder": {
         color: "primary"
       }
-    },
     
-  }));
+    
+  });
 
   

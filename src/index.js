@@ -5,14 +5,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material";
-import { theme } from "./utils/ThemeColor";
+import { theme, customTheme } from "./utils/ThemeColor";
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={customTheme}>
       <App />
     </ThemeProvider>
     </BrowserRouter>

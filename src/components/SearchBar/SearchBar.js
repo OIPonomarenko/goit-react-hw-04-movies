@@ -2,23 +2,31 @@ import { useFormik, Formik } from 'formik';
 
 //===styles
 import {Button} from 'react-bootstrap';
+import { TextField } from '@mui/material';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import s from "./SearchBar.module.css";
-import { useStyles } from './StyledInput';
+
+
+
 
 
 export default function SearchBar ({query, onSubmit, onChange}) {
-    const classes = useStyles();
-
+  
+ 
     return (
         <form className={s.SearchForm} onSubmit={onSubmit}>
-          <TextField 
-              classes 
+          <TextField  
               type="text"
               label="Search movie"
               variant="standard"
-              color="primary"
+              color='primary'
+              InputProps={{
+                disableUnderline: true,
+              }}
+        
           />
+
 
           <input
             className={s.SearchFormInput}
