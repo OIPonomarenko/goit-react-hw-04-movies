@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { ApiByName } from "../../Api/Api";
 
@@ -16,7 +16,7 @@ export default function MoviesPage() {
   const [movieSearch, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const history = useHistory();
+  const history = useNavigate();
   const location = useLocation();
   const prevMovies = useRef();
 
@@ -25,7 +25,7 @@ export default function MoviesPage() {
   useEffect(() => {
     if (!urlQuery) {
       return;
-    };
+    }
     
       ApiByName(urlQuery, page)
       .then((res) => {
@@ -41,7 +41,7 @@ export default function MoviesPage() {
 
       })
       .catch(({ message }) => toast.error(message))
-  }, [page]);
+  },[page]);
 
   useEffect(()=> {
     setPage(1)
@@ -56,7 +56,7 @@ export default function MoviesPage() {
     if (movieSearch.trim() === '') {
       toast.error(`No result for "${urlQuery}". Try another movie`);
       return 5;  
-    };
+    }
     setMovies([]);
 
     history.push({
@@ -79,7 +79,7 @@ export default function MoviesPage() {
 
   return (
     <section className={s.popularListSector}>
-      <Container className={s.movieListContainer}  >
+      <Container className={s.movieListContainer}>
           <header className={s.Searchbar}>
               <SearchBar query={movieSearch} onSubmit={handleSubmit} onChange={handleNameChange} />
           </header>

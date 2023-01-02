@@ -5,17 +5,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material";
-import { theme, customTheme } from "./utils/ThemeColor";
+import { customTheme } from "./utils/ThemeColor";
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+
     <ThemeProvider theme={customTheme}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
-    </BrowserRouter>
+
   </React.StrictMode>,
   document.getElementById("root")
 );
