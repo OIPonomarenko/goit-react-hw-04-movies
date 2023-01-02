@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 
 import Navigation from "./components/Navigation/Navigation";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,7 +16,7 @@ const MovieDetailsPage = lazy(() =>
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navigation />
 
       <Suspense fallback={<div>Loading...</div>}>
@@ -37,7 +38,7 @@ function App() {
         draggable
         pauseOnHover
       />
-    </>
+    </BrowserRouter>
   );
 }
 
