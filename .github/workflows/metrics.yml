@@ -3,7 +3,7 @@ name: Metrics
 on:
   workflow_dispatch:
   pull_request:
-    branches: master
+    branches: main
 
 jobs:
   check:
@@ -25,8 +25,17 @@ jobs:
       - name: 🤖 npm install
         run: npm install
 
+      - name: Install CLOC
+        run: sudo apt install cloc
+
       - name: 🧪 Run tests and count lines
         run: npm test
+
+      - name: Create codeLines file
+        run: cloc src --exclude-ext=test.js --report-file=coverage/codeLines
+
+      - name: Create testLines file
+        run: cloc src/components/__tests__ --report-file=coverage/testLines
 
       - name: 🎉 Send metrics to server
         run: node metrics.js
