@@ -26,7 +26,7 @@ export default function MovieDetailsPage() {
   useEffect(() => {
     ApiByID(movieId).then((res) => {
       setMovies(res.data);
-      setQuery(location.state.from.search);
+     // setQuery(location.state.from.search);
     });
   },[]);
 
@@ -63,42 +63,42 @@ export default function MovieDetailsPage() {
       <section className={s.addInfo}>
         <div className={s.container}>
           <h3 className={s.title}>Additional information</h3>
-          <ul className={s.list}>
-            <li className={s.item}>
-              <NavLink
-                to={{
-                  pathname: `cast`,
-                  state: {
-                    from: {
-                      ...location,
-                      pathname: location.state.from.pathname,
-                      search: query,
-                    },
-                  },
-                }}
-              >
-                {" "}
-                Cast{" "}
-              </NavLink>
-            </li>
-            <li className={s.item}>
-              <NavLink
-                to={{
-                  pathname: `reviews`,
-                  state: {
-                    from: {
-                      ...location,
-                      pathname: location.state.from.pathname,
-                      search: query,
-                    },
-                  },
-                }}
-              >
-                {" "}
-                Rewiews{" "}
-              </NavLink>
-            </li>
-          </ul>
+          {/*<ul className={s.list}>*/}
+          {/*  <li className={s.item}>*/}
+          {/*    <NavLink*/}
+          {/*      to={{*/}
+          {/*        pathname: `cast`,*/}
+          {/*        state: {*/}
+          {/*          from: {*/}
+          {/*            ...location,*/}
+          {/*            pathname: location.state.from.pathname,*/}
+          {/*            search: query,*/}
+          {/*          },*/}
+          {/*        },*/}
+          {/*      }}*/}
+          {/*    >*/}
+          {/*      {" "}*/}
+          {/*      Cast{" "}*/}
+          {/*    </NavLink>*/}
+          {/*  </li>*/}
+          {/*  <li className={s.item}>*/}
+          {/*    <NavLink*/}
+          {/*      to={{*/}
+          {/*        pathname: `reviews`,*/}
+          {/*        state: {*/}
+          {/*          from: {*/}
+          {/*            ...location,*/}
+          {/*            pathname: location.state.from.pathname,*/}
+          {/*            search: query,*/}
+          {/*          },*/}
+          {/*        },*/}
+          {/*      }}*/}
+          {/*    >*/}
+          {/*      {" "}*/}
+          {/*      Rewiews{" "}*/}
+          {/*    </NavLink>*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
         </div>
       </section>
 
