@@ -108,6 +108,7 @@ export default function MovieDetailsPage() {
           <Route path={`cast`} element={<Cast/>}></Route>
         </Routes>
       </Suspense>
+
     </>
   );
 }
